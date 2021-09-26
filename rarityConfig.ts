@@ -3,7 +3,7 @@ import { Config } from './src/types'
 const config: Config = {
   // weights: {},
   // getMissingTraitIdentifier: (trait_type?: string) => undefined,
-  // attributesFieldName: 'attributes',
+  attributesFieldName: 'traits',
 }
 
 export default config
