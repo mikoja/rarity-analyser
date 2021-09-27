@@ -47,9 +47,9 @@ type Counts = {
  * @returns Collection with rarity data
  */
 export const analyse = (
-  t: Array<Record<string, string | number | Attribute[]>>
+  c: Array<Record<string, string | number | Attribute[]>> | { tokens: Array<Record<string, string | number | Attribute[]>> }
 ): Collection => {
-  const tokens: Token[] = preprocess(t)
+  const tokens: Token[] = preprocess('tokens' in c ? c.tokens : c)
   const n = tokens.length
   let traitTypes = getTraitTypeSet(tokens)
 
