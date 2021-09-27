@@ -216,7 +216,7 @@ const addTraitCounts = (
 ) =>
   tokens.map((token) => {
     const count = token.attributes.filter(
-      (a) => a.value !== getMissingTraitIdentifier(a.trait_type) ?? MISSING
+      (a) => a.value !== (getMissingTraitIdentifier(a.trait_type) ?? MISSING)
     ).length
     const traitCountAttribute = {
       trait_type: 'Trait Count',
