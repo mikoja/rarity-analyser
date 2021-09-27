@@ -25,7 +25,7 @@ const argv = yargs(process.argv.slice(2)).options({
 if ('json' in argv) {
   console.log('Analysing data...')
   const rawData = readFileSync(argv.json, { encoding: 'utf-8' })
-  const tokens: Token[] = JSON.parse(rawData)
+  const tokens: Token[] | { tokens: Token[] } = JSON.parse(rawData)
   const collection = analyse(tokens)
 
   if (argv.saveJson) {
