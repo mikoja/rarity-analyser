@@ -43,11 +43,22 @@ Add weights to scale rarity scores up or down.
 {
   weights: {
     "Trait A": 1.2,
-    "Trait B": 0,
+    "Trait B": 0.1,
   }
 }
 ```
 
+### ignoreTraits
+Array of trait types to be ignored by the rarity analyser.
+
+```typescript
+{
+  ingoreTraits: [
+    'Trait x',
+    'Trait y',
+  ]
+}
+```
 ### getMissingTraitIdentifier
 `(trait_type?: string) => string | undefined`
 

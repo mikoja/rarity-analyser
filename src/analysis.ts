@@ -106,6 +106,12 @@ export const analyse = (
   }
 }
 
+const filterIgnored = (tokens: Token[], ignoredTraits: string[]) => tokens.map(token => ({
+  ...token,
+  attributes: token.attributes.filter(attribute => (
+    !(ignoredTraits.includes(attribute.trait_type))
+  ))
+}))
 
 const preprocess = (
   tokens: Record<string, string | number | Attribute[]>[]
@@ -152,7 +158,12 @@ const preprocess = (
     t = mapped
   }
 
-  return t as Token[]
+  let result: Token[]
+  if (config.ignoreTraits !== undefined)
+    result = filterIgnored(t as Token[], config.ignoreTraits)
+  else result = t as Token[]
+
+  return result
 }
 
 /**

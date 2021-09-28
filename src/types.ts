@@ -72,6 +72,7 @@ export interface Config {
   weights?: Weights
   getMissingTraitIdentifier?: GetMissingTraitIdentifier
   attributesFieldName?: string
+  ignoreTraits?: string[]
 }
 
 export type AttributeWithRarity = Attribute & RarityFields
